@@ -1,0 +1,25 @@
+Kristians liste:
+
+- RStudio kan lage skjelettet til en pakke med å velge New package, New directory, R package.
+  - Innholdet kan du kopiere og flytte mellom kataloger i etterkant om du lager skjelettet på et nytt sted
+
+- En pakke skal ikke være mer enn 5 MB på CRAN, så store datasett kan ikke være med.
+
+- Bruk Roxygen til å dokumentere funksjoner
+  - Lag en (foreløpig) funksjon
+  - Plasser markøren i første linje av funksjonen
+  - Velg fra menyen Code -> Roxygen skeleton ...
+  - Rediger tittel, beskrivelse, ...
+  - Nyttige tagger:
+    - @seealso: Linke til andre deler av pakken (f.eks. fra en funksjon til tilhørende plott)
+    - @importFrom: Import av funksjoner fra andre pakker, f.eks. @importFrom pls plsr crossval, henter funksjonene plsr og crossval fra pls pakken
+    - @param: Alle inputs må dokumenteres med @param, f.eks. @param object an \code{mvr} object.  The fitted model. It should contain a \code{validation} element.
+    - @references: Referanse(r) som gjelder for gitte funksjon
+    - @examples: Kjørbart eksempel basert på data i pakken eller en av pakkene det importeres fra.
+
+- Minimum ett godt eksempel med instruksjoner må være tilgjengelig som Vignette til pakken. Dette lages enklest i RMarkdown format.
+
+- Til Journal of Open Source Software tror jeg vi er avhengige av å ha kodetesting i pakken. Dette er R-filer i en egen test-katalog som sjekker at pakkens funksjoner kan kjøres uten feilmeldinger og at resultater som genereres blir like som tidligere lagrede resultater.
+  - Disse testene er nyttige for oss ved at endringer i pakken som medfører feil vil kunne fanges opp av kodetestene.
+  - Det betyr også at endringer som gir nye resultater må speiles i endringer i de lagrede resultatene som testene sammenligner med.
+  - ... og hvis en bruker tilfeldigheter (som i bootstrapping), må random seed benyttes i testene.
