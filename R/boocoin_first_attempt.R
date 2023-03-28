@@ -7,14 +7,23 @@ library(rsample)
 library(pastecs)
 library(party)
 library(reshape2)
-library(lubridate)
-library(xgboost)
 library(boot)
-library(fabricatr)
 library(parallel)
 library(pbapply)
 
 
+#' Title
+#'
+#' @param data
+#' @param index
+#' @param p
+#' @param formula
+#' @param extra
+#'
+#' @return
+#' @export
+#'
+#' @examples
 NBPtestingGeneral <- function(data, index, p, formula, extra){
   resample <- data[index, ]
   formula <- formula(formula)
