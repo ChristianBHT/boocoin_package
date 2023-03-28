@@ -83,7 +83,8 @@ results1 <- booty(cl, dataFunc=three_dag, statistic=NBPtestingGeneral,
                   formula="X ~ Y + Z", extra="Y")
 #write.csv(as.data.frame(results),"./NBPtesting_100.csv", row.names = TRUE)
 toc <- proc.time()
-toc-tic
+
+tic + toc
 
 #####################
 # 200, four_var_cat #
